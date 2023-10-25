@@ -1,10 +1,10 @@
 <?php
 function Connect()
 {
-    $dbhost = "localhost";
-    $dbport = 3307;
+    $dbhost = "127.0.0.1";
+    $dbport = 3369;
     $dbuser = "root";
-    $dbpass = "dbms@1233"; // Replace this with your database password
+    $dbpass = ""; // Replace this with your database password
     $dbname = "foodorder";
 
     try {
