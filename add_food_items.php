@@ -10,7 +10,7 @@ header('Location: managerlogin.php');
 <html>
 
   <head>
-    <title> Manager Login | Hoommies Cafe </title>
+    <title> Manager Login | HungryCampus </title>
   </head>
 
   <link rel="stylesheet" type = "text/css" href ="css/add_food_items.css">
@@ -55,7 +55,7 @@ header('Location: managerlogin.php');
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Le Cafe'</a>
+          <a class="navbar-brand" href="index.php">HungryCampus</a>
         </div>
 
         <div class="collapse navbar-collapse " id="myNavbar">

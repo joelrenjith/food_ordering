@@ -11,7 +11,7 @@ header("location: customerlogin.php");
 <html>
 
   <head>
-    <title> Online Payment | Hommies Cafe' </title>
+    <title> Online Payment | HungryCampus </title>
   </head>
 
   <link rel="stylesheet" type = "text/css" href ="css/COD.css">
@@ -55,7 +55,7 @@ header("location: customerlogin.php");
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Le Cafe'</a>
+          <a class="navbar-brand" href="index.php">HungryCampus</a>
         </div>
 
         <div class="collapse navbar-collapse " id="myNavbar">

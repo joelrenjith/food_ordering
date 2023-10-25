@@ -11,7 +11,7 @@ header("location: customerlogin.php");
 <html>
 
   <head>
-    <title> Explore | Food Le Cafe' </title>
+    <title> Explore | Food HungryCampus </title>
   </head>
 
   <link rel="stylesheet" type = "text/css" href ="css/foodlist.css">
@@ -55,7 +55,7 @@ header("location: customerlogin.php");
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Le Cafe'</a>
+          <a class="navbar-brand" href="index.php">HungryCampus</a>
         </div>
 
         <div class="collapse navbar-collapse " id="myNavbar">
@@ -174,7 +174,7 @@ else {
 
 <div class="jumbotron">
   <div class="container text-center">
-    <h1>Welcome To Le Cafe'</h1>      
+    <h1>Welcome To HungryCampus</h1>      
     <!--p>Let food be thy medicine and medicine be thy food</p-->
   </div>
 </div>

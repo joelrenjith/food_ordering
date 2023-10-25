@@ -10,7 +10,7 @@ header('Location: managerlogin.php'); // Redirecting To Home Page
 <html>
 
   <head>
-    <title> Manager Login | Hommies Cafe' </title>
+    <title> Manager Login | HungryCampus </title>
   </head>
 
   <link rel="stylesheet" type = "text/css" href ="css/view_food_items.css">
@@ -54,7 +54,7 @@ header('Location: managerlogin.php'); // Redirecting To Home Page
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Hommies Cafe'</a>
+          <a class="navbar-brand" href="index.php">HungryCampus</a>
         </div>
 
         <div class="collapse navbar-collapse " id="myNavbar">
