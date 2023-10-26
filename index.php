@@ -11,6 +11,10 @@ session_start();
   <link rel="stylesheet" type = "text/css" href ="css/bootstrap.min.css">
 
   <link rel="stylesheet" type = "text/css" href ="css/index.css">
+  <link rel="stylesheet" type = "text/css" href ="css/managersignup.css">
+  <link rel="stylesheet" type = "text/css" href ="css/bootstrap.min.css">
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
   <body>
 
@@ -96,7 +100,7 @@ else {
                 <ul class="dropdown-menu">
               <li> <a href="customersignup.php"> User Sign-up</a></li>
               <li> <a href="managersignup.php"> Manager Sign-up</a></li>
-              
+           
             </ul>
             </li>
 
