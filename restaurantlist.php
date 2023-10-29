@@ -1,5 +1,53 @@
+<!-- <?php
+// // Database connection parameters
+
+// require 'connection.php';
+// $conn1 = Connect();
+
+
+// // Check the connection
+// if ($conn1->connect_error) {
+//     die("Connection failed: " . $conn1->connect_error);
+// }
+
+// // Assuming you have a manager's username
+// $manager_username = $_SESSION['login_user1'];
+
+// // SQL query to retrieve restaurants owned by the manager
+// $sql = "SELECT name FROM restaurants WHERE M_ID = ?";
+// $stmt = $conn1->prepare($sql);
+// $stmt->bind_param("s", $manager_username);
+// $stmt->execute();
+// $result = $stmt->get_result();
+
+// // Check if there are any restaurants owned by the manager
+// if ($result->num_rows > 0) {
+//     echo "<table border='1'>";
+//     echo "<tr><th>Restaurant Name</th><tr>";
+    
+//     while ($row = $result->fetch_assoc()) {
+//         echo "<tr><td>" . $row["name"] . "</td></tr>";
+//     }
+    
+//     echo "</table>";
+// } else {
+//     echo "No restaurants found for this manager.";
+// }
+
+// // Close the database connection
+
+// ?> -->
+
+
+
+
 <?php
 include('session_m.php');
+// require 'connection.php';
+// $conn1 = Connect();
+
+// if ($conn1->connect_error) {
+//     die("Connection failed: " . $conn1->connect_error);
 
 if(!isset($login_session)){
 header('Location: managerlogin.php'); // Redirecting To Home Page
@@ -7,6 +55,8 @@ header('Location: managerlogin.php'); // Redirecting To Home Page
 
 ?>
 <!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
 <html>
 
   <head>
@@ -103,36 +153,69 @@ header('Location: managerlogin.php'); // Redirecting To Home Page
     		<a href="delete_food_items.php" class="list-group-item ">Delete Food Items</a>
     	</div>
     </div>
+
     
 
 
     
     <div class="col-xs-9">
       <div class="form-area" style="padding: 0px 100px 100px 100px;">
-        <form action="myrestaurant1.php" method="POST">
-        <br style="clear: both">
-          <h3 style="margin-bottom: 25px; text-align: center; font-size: 30px;"> Add New  RESTAURANT</h3>
+      <?php
+// Database connection parameters
 
-          <div class="form-group">
-            <input type="text" class="form-control" id="name" name="name" placeholder="Your Restaurant's Name" required="">
-          </div>
+require_once 'connection.php';
+$conn1 = Connect();
 
-          <div class="form-group">
-            <input type="email" class="form-control" id="email" name="email" placeholder="Your Restaurant's Email" required="">
-          </div>     
 
-          <div class="form-group">
-            <input type="text" class="form-control" id="contact" name="contact" placeholder="Your Restaurant's Contact Number" required="">
-          </div>
+// Check the connection
+if ($conn1->connect_error) {
+    die("Connection failed: " . $conn1->connect_error);
+}
 
-          <div class="form-group">
-            <input type="text" class="form-control" id="address" name="address" placeholder="Your Restaurant's Address" required="">
-          </div>
+// Assuming you have a manager's username
+$manager_username = $_SESSION['login_user1'];
 
-          <div class="form-group">
-          <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right"> ADD RESTAURANT </button>    
-      </div>
-        </form>
+// SQL query to retrieve restaurants owned by the manager
+$sql = "SELECT name FROM restaurants WHERE M_ID = ?";
+$stmt = $conn1->prepare($sql);
+$stmt->bind_param("s", $manager_username);
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Check if there are any restaurants owned by the manager
+// if ($result->num_rows > 0) {
+//     echo "<table border='1'>";
+//     echo "<tr><th>Restaurant Name</th><tr>";
+    
+//     while ($row = $result->fetch_assoc()) {
+//         echo "<tr><td>" . $row["name"] . "</td></tr>";
+//     }
+    
+//     echo "</table>";
+// } else {
+//     echo "No restaurants found for this manager.";
+// }
+if ($result->num_rows > 0) {
+    echo '<table class="table table-striped table-bordered">';
+    echo '<thead><tr><th>Restaurant Name</th></tr></thead>';
+    echo '<tbody>';
+    
+    while ($row = $result->fetch_assoc()) {
+        echo '<tr><td>' . $row['name'] . '</td></tr>';
+    }
+    
+    echo '</tbody>';
+    echo '</table>';
+} else {
+    echo 'No restaurants found for this manager.';
+}
+
+
+// Close the database connection
+
+?>
+
+        
 
         
         </div>

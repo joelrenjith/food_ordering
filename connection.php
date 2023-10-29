@@ -9,7 +9,7 @@ function Connect()
 
     try {
         // Create Connection
-        echo "Connecting...";
+        
         $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname, $dbport);
 
         if ($conn->connect_error) {
