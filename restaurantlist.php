@@ -110,8 +110,7 @@ header('Location: managerlogin.php'); // Redirecting To Home Page
         <div class="collapse navbar-collapse " id="myNavbar">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Home</a></li>
-            <li><a href="dashboard.php">About</a></li>
-            <li><a href="contactus.php">Contact Us</a></li>
+           
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -145,8 +144,8 @@ header('Location: managerlogin.php'); // Redirecting To Home Page
     	<div class="col-xs-3" style="text-align: center;">
 
     	<div class="list-group">
-    		<a href="myrestaurant.php" class="list-group-item active">Add New Restaurant</a>
-        <a href="restaurantlist.php" class="list-group-item ">Your Restaurants</a>
+    		<a href="myrestaurant.php" class="list-group-item">Add New Restaurant</a>
+        <a href="restaurantlist.php" class="list-group-item active ">Your Restaurants</a>
     		<a href="view_food_items.php" class="list-group-item ">View Food Items</a>
     		<a href="add_food_items.php" class="list-group-item ">Add Food Items</a>
     		<a href="edit_food_items.php" class="list-group-item ">Edit Food Items</a>
@@ -176,7 +175,7 @@ if ($conn1->connect_error) {
 $manager_username = $_SESSION['login_user1'];
 
 // SQL query to retrieve restaurants owned by the manager
-$sql = "SELECT name FROM restaurants WHERE M_ID = ?";
+$sql = "SELECT R_ID, name FROM restaurants WHERE M_ID = ?";
 $stmt = $conn1->prepare($sql);
 $stmt->bind_param("s", $manager_username);
 $stmt->execute();
@@ -197,11 +196,11 @@ $result = $stmt->get_result();
 // }
 if ($result->num_rows > 0) {
     echo '<table class="table table-striped table-bordered">';
-    echo '<thead><tr><th>Restaurant Name</th></tr></thead>';
+    echo '<thead><tr><th>Restaurant ID</th><th>Restaurant Name</th></tr></thead>';
     echo '<tbody>';
     
     while ($row = $result->fetch_assoc()) {
-        echo '<tr><td>' . $row['name'] . '</td></tr>';
+        echo '<tr><td>' . $row['R_ID'] . '</td><td>' . $row['name'] . '</td></tr>';
     }
     
     echo '</tbody>';

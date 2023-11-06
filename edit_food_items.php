@@ -66,8 +66,7 @@ header('Location: managerlogin.php');
         <div class="collapse navbar-collapse " id="myNavbar">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Home</a></li>
-            <li><a href="aboutus.php">About</a></li>
-            <li><a href="contactus.php">Contact Us</a></li>
+             
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -103,6 +102,7 @@ header('Location: managerlogin.php');
 
     	<div class="list-group">
     		<a href="myrestaurant.php" class="list-group-item ">My Restaurant</a>
+        <a href="restaurantlist.php" class="list-group-item ">Your Restaurants</a>
     		<a href="view_food_items.php" class="list-group-item ">View Food Items</a>
     		<a href="add_food_items.php" class="list-group-item ">Add Food Items</a>
     		<a href="edit_food_items.php" class="list-group-item active">Edit Food Items</a>
@@ -131,14 +131,15 @@ header('Location: managerlogin.php');
     $F_ID = $_GET['dfid'];
     $name = $_GET['dname'];
     $price = $_GET['dprice'];
-    $description = $_GET['ddescription'];
+    $quantity = $_GET['dquantity'];
+
 
 
     $query = mysqli_query($conn, "UPDATE food set
     name='$name', price='$price',
-    description='$description' where F_ID='$F_ID'");
+    quantity ='$quantity' where F_ID='$F_ID'");
     }
-    $query = mysqli_query($conn, "SELECT * FROM food f WHERE f.R_ID IN (SELECT r.R_ID FROM RESTAURANTS r WHERE r.M_ID='$user_check') ORDER BY F_ID");
+    $query = mysqli_query($conn, "SELECT * FROM food f WHERE f.R_ID IN (SELECT r.R_ID FROM RESTAURANTS r WHERE r.M_ID='$user_check')AND f.options='ENABLE'  ORDER BY F_ID");
     while ($row = mysqli_fetch_array($query)) {
 
       ?>
@@ -189,8 +190,8 @@ header('Location: managerlogin.php');
           </div>
 
           <div class="form-group">
-            <label for="username"><span class="text-danger" style="margin-right: 5px;">*</span> Food Description: </label>
-            <input type="text" class="form-control" id="ddescription" name="ddescription" value=<?php echo $row1['description'];  ?> placeholder="Your Food Description" required="">
+            <label for="username"><span class="text-danger" style="margin-right: 5px;">*</span> Food Quantity: </label>
+            <input type="text" class="form-control" id="dquantity" name="dquantity" value=<?php echo $row1['quantity'];  ?> placeholder="Your Food Description" required="">
           </div>
 
           <div class="form-group">

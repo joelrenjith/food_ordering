@@ -9,12 +9,13 @@ session_start();
   </head>
 
   <link rel="stylesheet" type = "text/css" href ="css/bootstrap.min.css">
-
-  <link rel="stylesheet" type = "text/css" href ="css/index.css">
   <link rel="stylesheet" type = "text/css" href ="css/managersignup.css">
   <link rel="stylesheet" type = "text/css" href ="css/bootstrap.min.css">
+  
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type = "text/css" href ="css/index.css">
+
 
   <body>
 
@@ -129,7 +130,6 @@ else {
           <font color = rgba(25,84,183,1) style="font-family:verdana">Order Early,Eat Easy</font>
         </div>
     </div>
-    <br>
     <div class="orderblock">
     <h2>Feeling Hungry?</h2>
     <center><a class="btn btn-success btn-lg" href="customerlogin.php" role="button" > Order Now </a></center>

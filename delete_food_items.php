@@ -60,8 +60,7 @@ header('Location: managerlogin.php');
         <div class="collapse navbar-collapse " id="myNavbar">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Home</a></li>
-            <li><a href="aboutus.php">About</a></li>
-            <li><a href="contactus.php">Contact Us</a></li>
+             
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -96,7 +95,8 @@ header('Location: managerlogin.php');
     	<div class="col-xs-3" style="text-align: center;">
 
     	<div class="list-group">
-    		<a href="myrestaurant.php" class="list-group-item ">My Restaurant</a>
+      <a href="myrestaurant.php" class="list-group-item">Add New Restaurant</a>
+        <a href="restaurantlist.php" class="list-group-item ">Your Restaurants</a>
     		<a href="view_food_items.php" class="list-group-item ">View Food Items</a>
     		<a href="add_food_items.php" class="list-group-item ">Add Food Items</a>
     		<a href="edit_food_items.php" class="list-group-item ">Edit Food Items</a>

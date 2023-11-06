@@ -60,8 +60,7 @@ header('Location: managerlogin.php'); // Redirecting To Home Page
         <div class="collapse navbar-collapse " id="myNavbar">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Home</a></li>
-            <li><a href="dashboard.php">About</a></li>
-            <li><a href="contactus.php">Contact Us</a></li>
+          
           </ul>
 
           <ul class="nav navbar-nav navbar-right">

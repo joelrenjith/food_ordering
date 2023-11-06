@@ -10,6 +10,7 @@ header('Location: managerlogin.php');
 
 $name = $conn->real_escape_string($_POST['name']);
 $price = $conn->real_escape_string($_POST['price']);
+$quantity = $conn->real_escape_string($_POST['quantity']);
 $description = $conn->real_escape_string($_POST['description']);
 
 
@@ -22,7 +23,7 @@ $R_ID = $R_IDrs['R_ID'];
 
 $images_path = $conn->real_escape_string($_POST['images_path']);
 
-$query = "INSERT INTO FOOD(name,price,description,R_ID,images_path) VALUES('" . $name . "','" . $price . "','" . $description . "','" . $R_ID ."','" . $images_path . "')";
+$query = "INSERT INTO FOOD(name,price,quantity,description,R_ID,images_path) VALUES('" . $name . "','" . $price . "','". $quantity . "','" . $description . "','" . $R_ID ."','" . $images_path . "')";
 $success = $conn->query($query);
 
 if (!$success){
@@ -79,8 +80,7 @@ if (!$success){
         <div class="collapse navbar-collapse " id="myNavbar">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Home</a></li>
-            <li><a href="aboutus.php">About</a></li>
-            <li><a href="contactus.php">Contact Us</a></li>
+            
           </ul>
 
           <ul class="nav navbar-nav navbar-right">

@@ -62,8 +62,7 @@ unset($_SESSION["cart"]);
         <div class="collapse navbar-collapse " id="myNavbar">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Home</a></li>
-            <li><a href="aboutus.php">About</a></li>
-            <li><a href="contactus.php">Contact Us</a></li>
+          
 
           </ul>
 
@@ -140,16 +139,69 @@ else {
         </div>
         <br>
 
-<h2 class="text-center"> Thank you for Ordering at Le Cafe'! The ordering process is now complete.</h2>
+<h2 class="text-center"> Thank you for Ordering at HungryCampus! The ordering process is now complete.</h2>
+<?php
 
-<?php 
-  $num1 = rand(100000,999999); 
-  $num2 = rand(100000,999999); 
-  $num3 = rand(100000,999999);
-  $number = $num1.$num2.$num3;
-?>
+if(session_id() == '' || !isset($_SESSION)){session_start();}
 
-<h3 class="text-center"> <strong>Your Order Number:</strong> <span style="color: blue;"><?php echo "$number"; ?></span> </h3>
+// include 'config.php';
+echo "mee";
+
+if(isset($_SESSION['cart'])) {
+  echo "mee";
+
+  $total = 0;
+  
+  
+  
+
+
+  foreach($_SESSION['cart'] as $F_ID => $quantity) {
+
+    $result = mysqli_query($conn,"SELECT * FROM FOOD WHERE id = ".$F_ID);
+
+    if($result){
+
+      if($obj = $result->fetch_object()) {
+
+
+        $cost = $obj->price * $quantity;
+
+        $user = $_SESSION["username"];
+
+        $query =mysqli_query($conn,"INSERT INTO orders (product_code, product_name, product_desc, price, units, total, email) VALUES('$obj->product_code', '$obj->product_name', '$obj->product_desc', $obj->price, $quantity, $cost, '$user')");
+        echo "inserted F_ID: $F_ID<br>";
+        
+          $newqty = $obj->quantity - $quantity;
+          if ($newqty <= 0) {
+            echo "Updating food options to 'DISABLE' for F_ID: $F_ID<br>";
+            $update_food = mysqli_query($conn,"UPDATE food SET options = 'DISABLE' WHERE id = ".$F_ID);
+        } else {
+            echo "Updating food quantity to $newqty for F_ID: $F_ID<br>";
+            $update_food = mysqli_query($conn,"UPDATE food SET quantity = $newqty WHERE id = ".$F_ID);
+        }
+
+        
+
+           }
+
+
+
+      }
+    }
+  }
+  
+
+
+
+// header("location:bill.php");
+
+?> 
+
+
+
+
+<h3 class="text-center"> <strong>Your Order Number:</strong> <span style="color: blue;"><?php echo "$_SESSION['number']"; ?></span> </h3>
 
         </body>
 

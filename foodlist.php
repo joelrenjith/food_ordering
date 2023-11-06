@@ -61,9 +61,6 @@ header("location: customerlogin.php");
         <div class="collapse navbar-collapse " id="myNavbar">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Home</a></li>
-            <li><a href="aboutus.php">About</a></li>
-            <li><a href="contactus.php">Contact Us</a></li>
-
           </ul>
 
 <?php
@@ -128,7 +125,7 @@ else {
       </div>
     </nav>
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -148,7 +145,7 @@ else {
 
       </div>
       </div-->
-
+<!-- 
       <div class="item">
       <img src="images/slide001.jpg" style="width:100%;">
       <div class="carousel-caption">
@@ -170,11 +167,11 @@ else {
       <span class="glyphicon glyphicon-chevron-right"></span>
       <span class="sr-only">Next</span>
     </a>
-    </div>
+    </div> --> 
 
 <div class="jumbotron">
   <div class="container text-center">
-    <h1>Welcome To HungryCampus</h1>      
+    <h1>Order your favourite food here!!</h1>      
     <!--p>Let food be thy medicine and medicine be thy food</p-->
   </div>
 </div>

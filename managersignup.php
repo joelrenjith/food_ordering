@@ -51,9 +51,7 @@
         <div class="collapse navbar-collapse " id="myNavbar">
           <ul class="nav navbar-nav">
             <li  ><a href="index.php">Home</a></li>
-            <!-- <li><a href="aboutus.php">About</a></li> -->
-            <!-- <li><a href="contactus.php">Contact Us</a></li> -->
-          </ul>
+                      </ul>
 
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Sign Up <span class="caret"></span> </a>

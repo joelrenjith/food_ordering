@@ -60,8 +60,7 @@ header('Location: managerlogin.php'); // Redirecting To Home Page
         <div class="collapse navbar-collapse " id="myNavbar">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Home</a></li>
-            <li><a href="aboutus.php">About</a></li>
-            <li><a href="contactus.php">Contact Us</a></li>
+             
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -96,7 +95,8 @@ header('Location: managerlogin.php'); // Redirecting To Home Page
     	<div class="col-xs-3" style="text-align: center;">
 
     	<div class="list-group">
-    		<a href="myrestaurant.php" class="list-group-item ">My Restaurant</a>
+      <a href="myrestaurant.php" class="list-group-item">Add New Restaurant</a>
+        <a href="restaurantlist.php" class="list-group-item ">Your Restaurants</a>
     		<a href="view_food_items.php" class="list-group-item active">View Food Items</a>
     		<a href="add_food_items.php" class="list-group-item ">Add Food Items</a>
     		<a href="edit_food_items.php" class="list-group-item ">Edit Food Items</a>
@@ -122,7 +122,7 @@ header('Location: managerlogin.php'); // Redirecting To Home Page
 
 // Storing Session
 $user_check=$_SESSION['login_user1'];
-$sql = "SELECT * FROM food f WHERE f.R_ID IN (SELECT r.R_ID FROM RESTAURANTS r WHERE r.M_ID='$user_check') ORDER BY F_ID";
+$sql = "SELECT * FROM food f WHERE f.R_ID IN (SELECT r.R_ID FROM RESTAURANTS r WHERE r.M_ID='$user_check') AND f.options='ENABLE' ORDER BY F_ID";
 $result = mysqli_query($conn, $sql);
 
 
@@ -138,6 +138,7 @@ if (mysqli_num_rows($result) > 0)
         <th> Food ID </th>
         <th> Food Name </th>
         <th> Price </th>
+        <th> Quantity </th>
         <th> Description </th>
         <th> Restaurant ID </th>
       </tr>
@@ -154,6 +155,7 @@ if (mysqli_num_rows($result) > 0)
       <td><?php echo $row["F_ID"]; ?></td>
       <td><?php echo $row["name"]; ?></td>
       <td><?php echo $row["price"]; ?></td>
+      <td><?php echo $row["quantity"]; ?></td>
       <td><?php echo $row["description"]; ?></td>
       <td><?php echo $row["R_ID"]; ?></td>
     </tr>
