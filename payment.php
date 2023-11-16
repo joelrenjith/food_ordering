@@ -165,7 +165,7 @@ $gtotal = 0;
       ?>
       <div class="container">
       <div class="jumbotron">
-        <h1>Choose your payment option</h1>
+        <h1>Pay now</h1>
       </div>
     </div>
     <br>
@@ -174,7 +174,7 @@ $gtotal = 0;
 <br>
 <h1 class="text-center">
 <a href="cart.php"><button class="btn btn-warning"><span class="glyphicon glyphicon-circle-arrow-left"></span> Go back to cart</button></a>
-<a href="COD.php"><button class="btn btn-success"><span class="glyphicon glyphicon-"></span> Cash On Delivery</button></a>
+<a href="COD.php"><button class="btn btn-success"><span class="glyphicon glyphicon-"></span> Pay</button></a>
 </h1>
     
 

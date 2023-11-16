@@ -137,9 +137,11 @@ header('Location: managerlogin.php');
 
     $query = mysqli_query($conn, "UPDATE food set
     name='$name', price='$price',
-    quantity ='$quantity' where F_ID='$F_ID'");
+    quantity ='$quantity', options = CASE WHEN '$quantity' > 0 THEN 'ENABLE' ELSE 'DISABLE' END
+     where F_ID='$F_ID'");
+    // $query = mysqli_query($conn, "CALL UpdateFood('$name', $price, $quantity, $F_ID);");
     }
-    $query = mysqli_query($conn, "SELECT * FROM food f WHERE f.R_ID IN (SELECT r.R_ID FROM RESTAURANTS r WHERE r.M_ID='$user_check')AND f.options='ENABLE'  ORDER BY F_ID");
+    $query = mysqli_query($conn, "SELECT * FROM food f WHERE f.R_ID IN (SELECT r.R_ID FROM RESTAURANTS r WHERE r.M_ID='$user_check')  ORDER BY F_ID");
     while ($row = mysqli_fetch_array($query)) {
 
       ?>

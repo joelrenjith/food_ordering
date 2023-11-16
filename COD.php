@@ -145,7 +145,7 @@ else {
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
 // include 'config.php';
-echo "mee";
+// echo "mee";
 
 if(isset($_SESSION['cart'])) {
   echo "mee";
@@ -196,12 +196,13 @@ if(isset($_SESSION['cart'])) {
 
 // header("location:bill.php");
 
+$order_num = $_SESSION['number'];
 ?> 
 
 
 
 
-<h3 class="text-center"> <strong>Your Order Number:</strong> <span style="color: blue;"><?php echo "$_SESSION['number']"; ?></span> </h3>
+<h3 class="text-center"> <strong>Your Order Number:</strong> <span style="color: blue;"><?php echo "$order_num"; ?></span> </h3>
 
         </body>
 
