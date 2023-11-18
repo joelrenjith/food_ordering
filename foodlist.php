@@ -204,9 +204,9 @@ if (mysqli_num_rows($result) > 0)
 <form method="post" action="cart.php?action=add&id=<?php echo $row["F_ID"]; ?>">
 <div class="mypanel" align="center";>
 <img src="<?php echo $row["images_path"]; ?>" class="img-responsive">
-<h4 class="text-dark"><?php echo $row["food_name"]; ?></h4>
+<h4 class="text-dark"><a href="product_details.php?food_id=<?php echo $row["F_ID"]; ?>"><?php echo $row["food_name"]; ?></a></h4>
 <h5 class="text-info"><?php echo $row["restaurant_name"]; ?></h5>
-<h5 class="text-info"><?php echo $row["description"]; ?></h5>
+<!-- <h5 class="text-info"><?php echo $row["description"]; ?></h5> -->
 <h5 class="text-danger">&#8377; <?php echo $row["price"]; ?>/-</h5>
 <h5 class="text-info">Quantity: <input type="number" min="1" max="25" name="quantity" class="form-control" value="1" style="width: 60px;"> </h5>
 <input type="hidden" name="hidden_name" value="<?php echo $row["food_name"]; ?>">
