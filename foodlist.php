@@ -179,15 +179,59 @@ else {
 
 
 
+
 <div class="container" style="width:95%;">
+<!-- ... (your existing code) ... -->
+
+<div class="container" style="width:95%;">
+    <!-- Add the search form with radio buttons here -->
+    <form action="" method="get" class="form-inline">
+        <div class="form-group">
+            <label>Search by:</label>
+            <label class="radio-inline">
+                <input type="radio" name="search_criteria" value="food" checked> Food
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="search_criteria" value="restaurant"> Restaurant
+            </label>
+            
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="search">Search:</label>
+            <input type="text" class="form-control" id="search" name="query" placeholder="Search for food or restaurant">
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+    </form>
+
+    <!-- Display all Food from food table -->
+    
+    
+    
+</div>
+
+<!-- ... (your existing code) ... -->
 
 <!-- Display all Food from food table -->
 <?php
 
 require 'connection.php';
 $conn = Connect();
-
-$sql = "call GetEnabledFoods()";
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['search_criteria']) && isset($_GET['query'])) {
+  // Handle the search based on the selected criteria
+  $searchCriteria = $_GET['search_criteria'];
+  $searchQuery = $_GET['query'];
+  if($searchCriteria=="food"){
+    $sql  = "CALL SearchFoodByName('$searchQuery')";
+  }
+  else if($searchCriteria=="restaurant"){
+    $sql = "CALL SearchFoodByRestaurant('$searchQuery')";
+  }
+  // Perform the search and display results
+  // Example: echo performSearchFunction($searchCriteria, $searchQuery);
+}
+else{
+$sql = "call GetEnabledFoods()";}
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0)
@@ -199,6 +243,7 @@ if (mysqli_num_rows($result) > 0)
       echo "<div class='row'>";
 
 ?>
+
 <div class="col-md-3">
 
 <form method="post" action="cart.php?action=add&id=<?php echo $row["F_ID"]; ?>">
